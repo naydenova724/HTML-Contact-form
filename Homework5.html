@@ -3,6 +3,7 @@
     <head>
         <title>Contact form</title>
         <meta charset="UTF-8">
+        <!-- Аз бих ти препоръчал да си слагаш CSS-a в отделен файл.-->
         <style>          
             body {
                 background-color: #34495e; 
@@ -22,16 +23,9 @@
                 margin-top: 40px;
                 font-size: 15px;
             }
-        
+            /* За да не повтаряш един и същи CSS няколко пъти, можеш да изредиш няколко селектора, като ги разделиш със запетая */
+            input[type=text],
             input[type=number] {
-                box-sizing: border-box;
-                background-color:transparent;
-                color:#f1c40f;
-                border: none;
-                font-size: 15px;
-            }
-
-            input[type=text] {
                 box-sizing: border-box;
                 background-color:transparent;
                 color:#f1c40f;
@@ -48,14 +42,20 @@
     <body>
         <h1>Участници в съзтезанието:</h1>
 
+        <!-- Не бих сложил <form> таг тук, тъй като това реално не е формуляр. Тук можеш да сложиш без проблем просто <div> или да оставиш само таблицата -->
         <form class="column">
             <table>
                 <tbody>
                     <tr>
                         <td rowspan="5">
-                            <nav>
+                            <!-- Nav, се използва когато имаш навигация. В случея тук нямаме навигация, а статична картинка -->
+                            <!-- Също така за да не се забива изображенияето в единия край на контейнера си, можеш да слижиш text-align:center-->
+                            <!-- text-align:center, работи върху изображения, тъй като на <img> тагът, default-ния стил за display e inline -->
+                            <!-- Тук съм сложил стилът като inline style, но ти си го премести при останалия CSS -->
+                            <div style="text-align: center;">
+                                <!-- height и width можеш да ги преместиш в CSS-a -->
                                 <img src="Person placeholder.jpg" alt="Петър Иванов" height="80" width="80">
-                            </nav>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -65,6 +65,8 @@
                     </tr>
                     <tr>
                         <td> 
+                            <!-- Тук по-добре не използвай input, тъй като реално не искаме потребителя да въвежда данни.
+                            Инак те разбирам, че искаш да обвърцеш <label> с реалната стойност, но няма как да се случи със статични данни -->
                             <label for="yearsPeter">години:</label>
                             <input type="number" id="yearsPeter" value="34">
                         </td>
